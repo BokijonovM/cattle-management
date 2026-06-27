@@ -103,7 +103,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           p: { xs: 2, sm: 3 },
         }}
       >
-        <Toolbar /> {/* AppBar balandligiga joy */}
+        <Toolbar />
         {children}
       </Box>
     </Box>

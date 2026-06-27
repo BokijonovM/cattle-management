@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     mode: "light",
-    primary: { main: "#2e7d32" }, // qishloq xo'jaligi yashili
+    primary: { main: "#2e7d32" },
     secondary: { main: "#6d4c41" },
     background: { default: "#f6f8f6" },
   },

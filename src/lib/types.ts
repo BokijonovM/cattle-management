@@ -9,17 +9,16 @@ export type CattleStatus =
 
 export interface Cattle {
   id: string;
-  tagId: string;        // Identifikatsiya (quloq tagi)
+  tagId: string;
   name?: string;
-  breed: string;        // Zot
+  breed: string;
   gender: Gender;
-  dateOfBirth: string;  // ISO: yyyy-mm-dd
+  dateOfBirth: string;
   status: CattleStatus;
-  weight?: number;      // kg
+  weight?: number;
   notes?: string;
   createdAt: string;
   updatedAt: string;
 }
 
-// Formadan keladigan qiymatlar (id va vaqtlar avtomatik generatsiya qilinadi)
 export type CattleFormValues = Omit<Cattle, "id" | "createdAt" | "updatedAt">;

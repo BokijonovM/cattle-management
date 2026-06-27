@@ -25,7 +25,6 @@ export default function Dashboard() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-      {/* Statistik kartalar */}
       <Box
         sx={{
           display: "grid", gap: 2,
@@ -38,7 +37,6 @@ export default function Dashboard() {
         <StatCard label="Sog'lom" value={a.byStatus.find((s) => s.key === "healthy")?.value ?? 0} icon={<FavoriteIcon />} color="#2e7d32" />
       </Box>
 
-      {/* Doiraviy grafiklar */}
       <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" } }}>
         <Card>
           <CardContent>
@@ -62,7 +60,6 @@ export default function Dashboard() {
         </Card>
       </Box>
 
-      {/* Zot bo'yicha bar chart */}
       <Card>
         <CardContent>
           <Typography variant="subtitle1" sx={{ fontWeight: 600 }} gutterBottom>

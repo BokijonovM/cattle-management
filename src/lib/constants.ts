@@ -17,7 +17,6 @@ export const STATUSES: {
   { value: "deceased", label: "O'lgan", color: "warning" },
 ];
 
-// Tez tanlash uchun zotlar (formada erkin matn ham mumkin)
 export const BREEDS = [
   "Golshtin",
   "Simmental",
