@@ -27,8 +27,6 @@ search & filtering, and an analytics dashboard. Built as a technical assignment.
 > **State and validation are kept separate on purpose:** Redux owns the *data*,
 > Zod owns *correctness*.
 
----
-
 ## Getting Started
 
 ```bash
