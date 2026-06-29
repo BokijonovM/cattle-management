@@ -32,10 +32,10 @@ export default function CattleCardList({ items, onEdit, onDelete }: Props) {
               <StatusChip status={c.status} />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 1 }}>
-              <IconButton size="small" onClick={() => onEdit(c)}>
+              <IconButton size="small" aria-label="Edit" onClick={() => onEdit(c)}>
                 <EditIcon fontSize="small" />
               </IconButton>
-              <IconButton size="small" color="error" onClick={() => onDelete(c)}>
+              <IconButton size="small" color="error" aria-label="Delete" onClick={() => onDelete(c)}>
                 <DeleteIcon fontSize="small" />
               </IconButton>
             </Box>

@@ -12,7 +12,7 @@ import PetsIcon from "@mui/icons-material/Pets";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { usePathname, useRouter } from "next/navigation";
 
-const DRAWER_WIDTH = 240;
+const DRAWER_WIDTH = 270;
 
 const navItems = [
   { label: "Dashboard", href: "/", icon: <DashboardIcon /> },
@@ -27,7 +27,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   const drawer = (
-    <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+    <Box sx={{ height: "100%", display: "flex", flexDirection: "column", width: DRAWER_WIDTH }}>
       <Toolbar sx={{ gap: 1.5, px: 2 }}>
         <Box
           sx={{
@@ -85,7 +85,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       >
         <Toolbar>
           {!isDesktop && (
-            <IconButton edge="start" onClick={() => setMobileOpen(true)} sx={{ mr: 2 }}>
+            <IconButton edge="start" aria-label="Open navigation menu" onClick={() => setMobileOpen(!mobileOpen)} sx={{ mr: 2 }}>
               <MenuIcon />
             </IconButton>
           )}

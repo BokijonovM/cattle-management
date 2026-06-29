@@ -45,12 +45,12 @@ export default function CattleTable({ items, onEdit, onDelete }: Props) {
               <TableCell><StatusChip status={c.status} /></TableCell>
               <TableCell align="right">
                 <Tooltip title="Edit">
-                  <IconButton size="small" onClick={() => onEdit(c)}>
+                  <IconButton size="small" aria-label="Edit" onClick={() => onEdit(c)}>
                     <EditIcon fontSize="small" />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="Delete">
-                  <IconButton size="small" color="error" onClick={() => onDelete(c)}>
+                  <IconButton size="small" color="error" aria-label="Delete" onClick={() => onDelete(c)}>
                     <DeleteIcon fontSize="small" />
                   </IconButton>
                 </Tooltip>

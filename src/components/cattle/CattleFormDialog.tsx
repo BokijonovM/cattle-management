@@ -88,7 +88,7 @@ export default function CattleFormDialog({ open, editing, onClose }: Props) {
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
       <DialogTitle sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         {editing ? "Edit cattle" : "Add new cattle"}
-        <IconButton onClick={onClose} size="small"><CloseIcon /></IconButton>
+        <IconButton onClick={onClose} aria-label="Close" size="small"><CloseIcon /></IconButton>
       </DialogTitle>
 
       <DialogContent dividers>
