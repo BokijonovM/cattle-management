@@ -23,28 +23,30 @@ export default function Dashboard() {
     .filter((g) => g.value > 0)
     .map((g, i) => ({ id: i, label: g.label, value: g.value }));
 
+  const brandPalette = ["#7c3aed", "#a78bfa", "#d97706", "#5b21b6", "#c4b5fd"];
+
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
       <Box
         sx={{
-          display: "grid", gap: 2,
+          display: "grid", gap: 1,
           gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(4, 1fr)" },
         }}
       >
         <StatCard label="Jami chorva" value={a.total} icon={<PetsIcon />} />
         <StatCard label="Faol poda" value={a.activeHerd} icon={<Inventory2Icon />} color="secondary.main" />
-        <StatCard label="O'rtacha yosh" value={`${a.avgAge.toFixed(1)} yil`} icon={<CakeIcon />} color="#0288d1" />
-        <StatCard label="Sog'lom" value={a.byStatus.find((s) => s.key === "healthy")?.value ?? 0} icon={<FavoriteIcon />} color="#2e7d32" />
+        <StatCard label="O'rtacha yosh" value={`${a.avgAge.toFixed(1)} yil`} icon={<CakeIcon />} color="#5b21b6" />
+        <StatCard label="Sog'lom" value={a.byStatus.find((s) => s.key === "healthy")?.value ?? 0} icon={<FavoriteIcon />} color="#16a34a" />
       </Box>
 
-      <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" } }}>
+      <Box sx={{ display: "grid", gap: 1, gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" } }}>
         <Card>
           <CardContent>
             <Typography variant="subtitle1" sx={{ fontWeight: 600 }} gutterBottom>
               Status boyicha taqsimot
             </Typography>
             {statusData.length
-              ? <PieChart series={[{ data: statusData, innerRadius: 40 }]} height={260} />
+              ? <PieChart series={[{ data: statusData, innerRadius: 40 }]} colors={brandPalette} height={260} />
               : <Empty />}
           </CardContent>
         </Card>
@@ -54,7 +56,7 @@ export default function Dashboard() {
               Jins nisbati
             </Typography>
             {genderData.length
-              ? <PieChart series={[{ data: genderData }]} height={260} />
+              ? <PieChart series={[{ data: genderData }]} colors={brandPalette} height={260} />
               : <Empty />}
           </CardContent>
         </Card>
@@ -68,7 +70,7 @@ export default function Dashboard() {
           {a.byBreed.length ? (
             <BarChart
               xAxis={[{ scaleType: "band", data: a.byBreed.map((b) => b.label) }]}
-              series={[{ data: a.byBreed.map((b) => b.value), color: "#2e7d32" }]}
+              series={[{ data: a.byBreed.map((b) => b.value), color: "#7c3aed" }]}
               height={300}
             />
           ) : <Empty />}

@@ -18,7 +18,7 @@ interface Props {
 
 export default function CattleFilters({ filters, onChange }: Props) {
   return (
-    <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", sm: "2fr 1fr 1fr" } }}>
+    <Box sx={{ display: "grid", gap: 1, gridTemplateColumns: { xs: "1fr", sm: "2fr 1fr 1fr" } }}>
       <TextField
         size="small"
         placeholder="Tag, ism yoki zot bo'yicha qidirish"

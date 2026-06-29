@@ -42,9 +42,11 @@ export default function CattlePage() {
 
   return (
     <Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2, mb: 3 }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2, mb: 1 }}>
         <Box>
-          <Typography variant="h5">Chorva royxati</Typography>
+          <Typography variant="h5" sx={{ mb: 0 }}>
+            Chorva royxati
+          </Typography>
           <Typography variant="body2" color="text.secondary">
             Jami {cattle.length} ta hayvon
           </Typography>
@@ -56,7 +58,7 @@ export default function CattlePage() {
 
       <CattleFilters filters={filters} onChange={setFilters} />
 
-      <Box sx={{ mt: 2 }}>
+      <Box sx={{ mt: 1 }}>
         {filtered.length === 0 ? (
           <Box sx={{ py: 8, textAlign: "center", color: "text.secondary" }}>
             <Typography>Hech narsa topilmadi.</Typography>

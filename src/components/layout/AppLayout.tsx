@@ -10,6 +10,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PetsIcon from "@mui/icons-material/Pets";
 import { usePathname, useRouter } from "next/navigation";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+
 
 const DRAWER_WIDTH = 240;
 
@@ -26,13 +28,31 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   const drawer = (
-    <Box>
-      <Toolbar>
-        <PetsIcon color="primary" sx={{ mr: 1 }} />
-        <Typography variant="h6" noWrap sx={{ fontWeight: 600 }}>
-          CattleMS
+    <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+      {/* Logo header — SilkHire uslubidagi yumaloq box */}
+      <Toolbar sx={{ gap: 1.5, px: 2 }}>
+        <Box
+          sx={{
+            width: 38,
+            height: 38,
+            borderRadius: 2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "linear-gradient(135deg, #7c3aed, #6d28d9)",
+            boxShadow: "0 2px 8px rgba(124, 58, 237, 0.3)",
+          }}
+        >
+          <PetsIcon sx={{ color: "#fff", fontSize: 20 }} />
+        </Box>
+        <Typography variant="h6" noWrap sx={{ fontWeight: 700 }}>
+          Cattle
+          <Box component="span" sx={{ color: "primary.main" }}>
+            MS
+          </Box>
         </Typography>
       </Toolbar>
+
       <List>
         {navItems.map((item) => (
           <ListItem key={item.href} disablePadding>
@@ -45,6 +65,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.label} />
+              <KeyboardArrowRightIcon
+                fontSize="small"
+                sx={{ color: "text.disabled" }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -100,7 +124,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         sx={{
           flexGrow: 1,
           width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
-          p: { xs: 2, sm: 3 },
+          p: { xs: 1, sm: 1 },
         }}
       >
         <Toolbar />

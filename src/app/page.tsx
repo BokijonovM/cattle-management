@@ -6,8 +6,10 @@ import Dashboard from "@/components/dashboard/Dashboard";
 export default function HomePage() {
   return (
     <Box>
-      <Typography variant="h5" gutterBottom>Dashboard</Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+      <Typography variant="h5" sx={{ mb: 0 }} gutterBottom>
+        Dashboard
+      </Typography>
+      <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
         Fermangizning umumiy holati
       </Typography>
       <Dashboard />
