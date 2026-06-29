@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐄 Cattle Management System
+
+A simple, responsive web app for a farmer to manage livestock — full CRUD,
+search & filtering, and an analytics dashboard. Built as a technical assignment.
+
+**Live demo:** [Demo](https://cattle-management-theta.vercel.app/)
+
+---
+
+## Features
+
+- **Register, view, update, and remove cattle** — full CRUD with a validated form
+- **Search & filter** — by tag, name, or breed; filter by status and gender
+- **Analytics dashboard** — herd totals, status & gender distribution, breed breakdown
+- **Responsive** — table view on desktop, card view on mobile/tablet
+- **Persistent** — data is saved to `localStorage`, survives page reloads
+
+---
+
+## Tech Stack
+
+| Concern        | Choice                    | Why                                                        |
+| -------------- | ------------------------- | ---------------------------------------------------------- |
+| Framework      | Next.js (App Router) + TS | Modern React, type safety end-to-end                       |
+| State          | Redux Toolkit             | Single source of truth for the cattle list                 |
+| Validation     | Zod                       | Schema-driven validation, decoupled from state             |
+| UI             | MUI + MUI X Charts        | Accessible components + ready-made charts                  |
+| Persistence    | localStorage              | No backend needed for the brief; isolated behind one layer |
+
+> **State and validation are kept separate on purpose:** Redux owns the *data*,
+> Zod owns *correctness*.
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The app seeds a few sample
+animals on first run so the dashboard isn't empty.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
+---
 
-## Learn More
+## Data Model
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+interface Cattle {
+  id: string;
+  tagId: string;        // Identification
+  name?: string;
+  breed: string;
+  gender: "male" | "female";
+  dateOfBirth: string;  // ISO date
+  status: "healthy" | "sick" | "pregnant" | "sold" | "deceased";
+  weight?: number;      // kg
+  notes?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Assumptions
 
-## Deploy on Vercel
+- **Single user** — no authentication; one farmer manages one herd.
+- **localStorage over a backend** — appropriate for the scope, but data is tied
+  to one browser/device. It lives behind a thin persistence layer, so swapping
+  in a real API is a one-file change.
+- **`tagId` is treated as the identifier** but uniqueness isn't enforced yet.
+- **Status drives "active herd"** — `sold` and `deceased` are excluded from
+  active counts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Improvements
+
+- Enforce unique `tagId` and add per-field async validation
+- Replace localStorage with a real API + database (data layer is ready for it)
+- Switch the form to `react-hook-form` + `zodResolver` as fields grow
+- Pagination / virtualization for large herds (500+ animals)
+- Unit tests for pure logic (`getAnalytics`, Zod schema)
+- Health & vaccination history, CSV import/export
+
+---
+
+## Notes
+
+Scoped to ~2–3 hours per the brief. The focus is on engineering approach, code
+quality, and clear design decisions rather than feature completeness.
