@@ -9,15 +9,14 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PetsIcon from "@mui/icons-material/Pets";
-import { usePathname, useRouter } from "next/navigation";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-
+import { usePathname, useRouter } from "next/navigation";
 
 const DRAWER_WIDTH = 240;
 
 const navItems = [
   { label: "Dashboard", href: "/", icon: <DashboardIcon /> },
-  { label: "Chorva", href: "/cattle", icon: <PetsIcon /> },
+  { label: "Cattle", href: "/cattle", icon: <PetsIcon /> },
 ];
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -29,7 +28,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   const drawer = (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      {/* Logo header — SilkHire uslubidagi yumaloq box */}
       <Toolbar sx={{ gap: 1.5, px: 2 }}>
         <Box
           sx={{

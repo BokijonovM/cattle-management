@@ -21,7 +21,7 @@ export default function CattleFilters({ filters, onChange }: Props) {
     <Box sx={{ display: "grid", gap: 1, gridTemplateColumns: { xs: "1fr", sm: "2fr 1fr 1fr" } }}>
       <TextField
         size="small"
-        placeholder="Tag, ism yoki zot bo'yicha qidirish"
+        placeholder="Search by tag, name or breed"
         value={filters.search}
         onChange={(e) => onChange({ ...filters, search: e.target.value })}
         slotProps={{
@@ -39,15 +39,15 @@ export default function CattleFilters({ filters, onChange }: Props) {
         value={filters.status}
         onChange={(e) => onChange({ ...filters, status: e.target.value as Filters["status"] })}
       >
-        <MenuItem value="all">Barchasi</MenuItem>
+        <MenuItem value="all">All</MenuItem>
         {STATUSES.map((s) => <MenuItem key={s.value} value={s.value}>{s.label}</MenuItem>)}
       </TextField>
       <TextField
-        size="small" select label="Jins"
+        size="small" select label="Gender"
         value={filters.gender}
         onChange={(e) => onChange({ ...filters, gender: e.target.value as Filters["gender"] })}
       >
-        <MenuItem value="all">Barchasi</MenuItem>
+        <MenuItem value="all">All</MenuItem>
         {GENDERS.map((g) => <MenuItem key={g.value} value={g.value}>{g.label}</MenuItem>)}
       </TextField>
     </Box>

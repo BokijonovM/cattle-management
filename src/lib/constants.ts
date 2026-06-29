@@ -1,8 +1,8 @@
 import { CattleStatus, Gender } from "./types";
 
 export const GENDERS: { value: Gender; label: string }[] = [
-  { value: "male", label: "Erkak" },
-  { value: "female", label: "Urg'ochi" },
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
 ];
 
 export const STATUSES: {
@@ -10,20 +10,20 @@ export const STATUSES: {
   label: string;
   color: "success" | "warning" | "info" | "default" | "error";
 }[] = [
-  { value: "healthy", label: "Sog'lom", color: "success" },
-  { value: "sick", label: "Kasal", color: "error" },
-  { value: "pregnant", label: "Bo'g'oz", color: "info" },
-  { value: "sold", label: "Sotilgan", color: "default" },
-  { value: "deceased", label: "O'lgan", color: "warning" },
+  { value: "healthy", label: "Healthy", color: "success" },
+  { value: "sick", label: "Sick", color: "error" },
+  { value: "pregnant", label: "Pregnant", color: "info" },
+  { value: "sold", label: "Sold", color: "default" },
+  { value: "deceased", label: "Deceased", color: "warning" },
 ];
 
 export const BREEDS = [
-  "Golshtin",
+  "Holstein",
   "Simmental",
   "Jersey",
   "Angus",
-  "Qora-ola",
-  "Shvits",
+  "Black-and-white",
+  "Brown Swiss",
 ];
 
 export const statusMeta = (value: CattleStatus) =>

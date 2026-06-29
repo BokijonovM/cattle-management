@@ -33,17 +33,17 @@ export default function Dashboard() {
           gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(4, 1fr)" },
         }}
       >
-        <StatCard label="Jami chorva" value={a.total} icon={<PetsIcon />} />
-        <StatCard label="Faol poda" value={a.activeHerd} icon={<Inventory2Icon />} color="secondary.main" />
-        <StatCard label="O'rtacha yosh" value={`${a.avgAge.toFixed(1)} yil`} icon={<CakeIcon />} color="#5b21b6" />
-        <StatCard label="Sog'lom" value={a.byStatus.find((s) => s.key === "healthy")?.value ?? 0} icon={<FavoriteIcon />} color="#16a34a" />
+        <StatCard label="Total cattle" value={a.total} icon={<PetsIcon />} />
+        <StatCard label="Active herd" value={a.activeHerd} icon={<Inventory2Icon />} color="secondary.main" />
+        <StatCard label="Average age" value={`${a.avgAge.toFixed(1)} years`} icon={<CakeIcon />} color="#5b21b6" />
+        <StatCard label="Healthy" value={a.byStatus.find((s) => s.key === "healthy")?.value ?? 0} icon={<FavoriteIcon />} color="#16a34a" />
       </Box>
 
       <Box sx={{ display: "grid", gap: 1, gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" } }}>
         <Card>
           <CardContent>
             <Typography variant="subtitle1" sx={{ fontWeight: 600 }} gutterBottom>
-              Status boyicha taqsimot
+              Distribution by status
             </Typography>
             {statusData.length
               ? <PieChart series={[{ data: statusData, innerRadius: 40 }]} colors={brandPalette} height={260} />
@@ -53,7 +53,7 @@ export default function Dashboard() {
         <Card>
           <CardContent>
             <Typography variant="subtitle1" sx={{ fontWeight: 600 }} gutterBottom>
-              Jins nisbati
+              Distribution by gender
             </Typography>
             {genderData.length
               ? <PieChart series={[{ data: genderData }]} colors={brandPalette} height={260} />
@@ -65,7 +65,7 @@ export default function Dashboard() {
       <Card>
         <CardContent>
           <Typography variant="subtitle1" sx={{ fontWeight: 600 }} gutterBottom>
-            Zot boyicha soni
+            Distribution by breed
           </Typography>
           {a.byBreed.length ? (
             <BarChart
@@ -83,7 +83,7 @@ export default function Dashboard() {
 function Empty() {
   return (
     <Box sx={{ py: 6, textAlign: "center", color: "text.secondary" }}>
-      <Typography variant="body2">Malumot yoq</Typography>
+      <Typography variant="body2">No data available</Typography>
     </Box>
   );
 }

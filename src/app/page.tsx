@@ -10,7 +10,7 @@ export default function HomePage() {
         Dashboard
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-        Fermangizning umumiy holati
+        The general condition of your farm
       </Typography>
       <Dashboard />
     </Box>

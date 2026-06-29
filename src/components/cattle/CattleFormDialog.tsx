@@ -87,20 +87,20 @@ export default function CattleFormDialog({ open, editing, onClose }: Props) {
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
       <DialogTitle sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        {editing ? "Chorvani tahrirlash" : "Yangi chorva qo'shish"}
+        {editing ? "Edit cattle" : "Add new cattle"}
         <IconButton onClick={onClose} size="small"><CloseIcon /></IconButton>
       </DialogTitle>
 
       <DialogContent dividers>
         <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, pt: 1 }}>
           <TextField
-            label="Identifikatsiya (tag) *"
+            label="Tag ID *"
             value={form.tagId}
             onChange={(e) => setField("tagId", e.target.value)}
             error={!!errors.tagId} helperText={errors.tagId} fullWidth
           />
           <TextField
-            label="Ism (ixtiyoriy)"
+            label="Name (optional)"
             value={form.name}
             onChange={(e) => setField("name", e.target.value)} fullWidth
           />
@@ -110,18 +110,18 @@ export default function CattleFormDialog({ open, editing, onClose }: Props) {
             value={form.breed}
             onInputChange={(_, v) => setField("breed", v)}
             renderInput={(params) => (
-              <TextField {...params} label="Zot *" error={!!errors.breed} helperText={errors.breed} />
+              <TextField {...params} label="Breed *" error={!!errors.breed} helperText={errors.breed} />
             )}
           />
           <TextField
-            select label="Jins *"
+            select label="Gender *"
             value={form.gender}
             onChange={(e) => setField("gender", e.target.value as Gender)} fullWidth
           >
             {GENDERS.map((g) => <MenuItem key={g.value} value={g.value}>{g.label}</MenuItem>)}
           </TextField>
           <TextField
-            label="Tug'ilgan sana *" type="date"
+            label="Date of birth *" type="date"
             value={form.dateOfBirth}
             onChange={(e) => setField("dateOfBirth", e.target.value)}
             error={!!errors.dateOfBirth} helperText={errors.dateOfBirth}
@@ -135,14 +135,14 @@ export default function CattleFormDialog({ open, editing, onClose }: Props) {
             {STATUSES.map((s) => <MenuItem key={s.value} value={s.value}>{s.label}</MenuItem>)}
           </TextField>
           <TextField
-            label="Vazn (kg, ixtiyoriy)" type="number"
+            label="Weight (kg, optional)" type="number"
             value={form.weight}
             onChange={(e) => setField("weight", e.target.value)}
             error={!!errors.weight} helperText={errors.weight} fullWidth
           />
           <Box sx={{ gridColumn: { sm: "1 / -1" } }}>
             <TextField
-              label="Izoh (ixtiyoriy)"
+              label="Notes (optional)"
               value={form.notes}
               onChange={(e) => setField("notes", e.target.value)}
               multiline minRows={2} fullWidth
@@ -152,9 +152,9 @@ export default function CattleFormDialog({ open, editing, onClose }: Props) {
       </DialogContent>
 
       <DialogActions sx={{ px: 3, py: 2 }}>
-        <Button onClick={onClose}>Bekor qilish</Button>
+        <Button onClick={onClose}>Cancel</Button>
         <Button variant="contained" onClick={handleSubmit}>
-          {editing ? "Saqlash" : "Qo'shish"}
+          {editing ? "Save" : "Add"}
         </Button>
       </DialogActions>
     </Dialog>

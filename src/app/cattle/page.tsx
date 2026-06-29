@@ -45,14 +45,14 @@ export default function CattlePage() {
       <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2, mb: 1 }}>
         <Box>
           <Typography variant="h5" sx={{ mb: 0 }}>
-            Chorva royxati
+            Cattle list
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Jami {cattle.length} ta hayvon
+            {cattle.length} animals total
           </Typography>
         </Box>
         <Button variant="contained" startIcon={<AddIcon />} onClick={handleAdd}>
-          Yangi qoshish
+          Add new
         </Button>
       </Box>
 
@@ -61,7 +61,7 @@ export default function CattlePage() {
       <Box sx={{ mt: 1 }}>
         {filtered.length === 0 ? (
           <Box sx={{ py: 8, textAlign: "center", color: "text.secondary" }}>
-            <Typography>Hech narsa topilmadi.</Typography>
+            <Typography>Nothing found.</Typography>
           </Box>
         ) : isMobile ? (
           <CattleCardList items={filtered} onEdit={handleEdit} onDelete={setDeleting} />

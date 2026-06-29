@@ -21,16 +21,16 @@ export default function DeleteConfirmDialog({ cattle, onClose }: Props) {
 
   return (
     <Dialog open={!!cattle} onClose={onClose} maxWidth="xs" fullWidth>
-      <DialogTitle>Ochirishni tasdiqlang</DialogTitle>
+      <DialogTitle>Confirm deletion</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          <strong>{cattle?.tagId}</strong> raqamli chorvani ochirmoqchimisiz?
-          Bu amalni ortga qaytarib bolmaydi.
+          Are you sure you want to delete the cattle with tag <strong>{cattle?.tagId}</strong>?
+          This action cannot be undone.
         </DialogContentText>
       </DialogContent>
       <DialogActions sx={{ px: 3, py: 2 }}>
-        <Button onClick={onClose}>Bekor qilish</Button>
-        <Button color="error" variant="contained" onClick={handleDelete}>Ochirish</Button>
+        <Button onClick={onClose}>Cancel</Button>
+        <Button color="error" variant="contained" onClick={handleDelete}>Delete</Button>
       </DialogActions>
     </Dialog>
   );

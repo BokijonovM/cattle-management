@@ -24,13 +24,13 @@ export default function CattleTable({ items, onEdit, onDelete }: Props) {
         <TableHead>
           <TableRow>
             <TableCell>Tag</TableCell>
-            <TableCell>Ism</TableCell>
-            <TableCell>Zot</TableCell>
-            <TableCell>Jins</TableCell>
-            <TableCell>Yosh</TableCell>
-            <TableCell>Tugilgan</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>Breed</TableCell>
+            <TableCell>Gender</TableCell>
+            <TableCell>Age</TableCell>
+            <TableCell>Birth date</TableCell>
             <TableCell>Status</TableCell>
-            <TableCell align="right">Amallar</TableCell>
+            <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -44,12 +44,12 @@ export default function CattleTable({ items, onEdit, onDelete }: Props) {
               <TableCell>{formatDate(c.dateOfBirth)}</TableCell>
               <TableCell><StatusChip status={c.status} /></TableCell>
               <TableCell align="right">
-                <Tooltip title="Tahrirlash">
+                <Tooltip title="Edit">
                   <IconButton size="small" onClick={() => onEdit(c)}>
                     <EditIcon fontSize="small" />
                   </IconButton>
                 </Tooltip>
-                <Tooltip title="O'chirish">
+                <Tooltip title="Delete">
                   <IconButton size="small" color="error" onClick={() => onDelete(c)}>
                     <DeleteIcon fontSize="small" />
                   </IconButton>
